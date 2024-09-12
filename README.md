@@ -12,20 +12,21 @@ A solução proposta envolve a implementação de um ciclo de aprendizado contí
 
 ```mermaid
 graph LR
-    A[Coleta de Dados em Tempo Real] --> B[Pré-Processamento e Detecção de Concept Drift]
+    A[Coleta de Dados] --> B[Pré-Processamento]
     B --> C[Atualização do Modelo]
     C --> D[Validação e Monitoramento]
-    D --> A
+    D --> A[Coleta de Dados]
+
 ```
 
 ### Descrição dos Blocos
 
 - **Coleta de Dados em Tempo Real**: Esse módulo é responsável por monitorar continuamente as interações dos usuários com o sistema conversacional. A coleta de novos dados em tempo real garante que o modelo tenha acesso às informações mais recentes e possa identificar mudanças no comportamento dos usuários.
-  
+
 - **Pré-Processamento e Detecção de Concept Drift**: Após a coleta, os dados passam por um processo de filtragem e preparação para identificar possíveis sinais de concept drift. Algoritmos de detecção de concept drift, como o DDM (Drift Detection Method), podem ser utilizados para alertar o sistema sobre a necessidade de ajustar o modelo (GAMA et al., 2004).
-  
+
 - **Atualização do Modelo**: Com a detecção do concept drift, o sistema deve adaptar o modelo de aprendizado. Esse módulo cuida da reavaliação do modelo utilizando os novos dados, aplicando técnicas de aprendizado incremental para atualizar os pesos e ajustar os parâmetros, sem precisar reinicializar o treinamento completo (SCHLAFER et al., 2017).
-  
+
 - **Validação e Monitoramento**: Após a atualização, o modelo passa por uma fase de validação para garantir que as mudanças não afetaram a qualidade geral das respostas. Caso aprovado, o modelo atualizado entra em produção, enquanto o sistema continua monitorando sua performance para possíveis ajustes futuros.
 
 ## Conclusão
